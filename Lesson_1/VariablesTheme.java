@@ -14,8 +14,8 @@ public class VariablesTheme {
         System.out.println("Частота процессора " + cpuFrequency + " ГГц");
         double ram = 8.00;
         System.out.println("Оперативная память составляет " + ram + " ГБ");
-        char processorSymbol = 'i';
-        System.out.println("Процессор Intel Core " + processorSymbol + cpu);
+        char cpuSymbol = 'i';
+        System.out.println("Процессор Intel Core " + cpuSymbol + cpu);
         boolean isWindows = true;
         if (isWindows) {
             System.out.println("На этом компьютере установлена операционная система Windows");
@@ -86,23 +86,23 @@ public class VariablesTheme {
         char leftParenthesis = '(';
         char rightParenthesis = ')';
         char underscore = '_';
-        System.out.println("    " + slash + backSlash + "    ");
-        System.out.println("   " + slash + "  " + backSlash + "   ");
-        System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + 
-                backSlash + "  ");
-        System.out.println(" " + slash + "      " + backSlash + " ");
-        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + 
-                backSlash + underscore + underscore + backSlash);
+        System.out.println("    " + slash + backSlash);
+        System.out.println("   " + slash + "  " + backSlash);
+        System.out.println("  " + slash + underscore + 
+                leftParenthesis + " " + rightParenthesis + backSlash);
+        System.out.println(" " + slash + "      " + backSlash);
+        System.out.println("" + slash + underscore + underscore + underscore + underscore + 
+                slash + backSlash + underscore + underscore + backSlash);
 
         System.out.println("\nЗадача 8. Вывод количества сотен, десятков и единиц числа");
         num1 = 123;
         int hundreads = num1 / 100;
-        int dozens = (num1 % 100) / 10;
+        int tens = (num1 % 100) / 10;
         int ones = num1 % 10;
-        int sum = hundreads + dozens + ones;
-        int multiplication = hundreads * dozens * ones;
-        System.out.println("Число " + num1 + " содержит:\n сотен - " + hundreads + "\n десятков - "
-                + dozens + "\n единиц - " + ones + "\nСумма его цифр - " + sum +
+        int sum = hundreads + tens + ones;
+        int multiplication = hundreads * tens * ones;
+        System.out.println("Число " + num1 + " содержит:\n сотен - " + hundreads + 
+                "\n десятков - " + tens + "\n единиц - " + ones + "\nСумма его цифр - " + sum +
                 "\nПроизведение его цифр - " + multiplication);
 
         System.out.println("\nЗадача 9. Вывод времени");
