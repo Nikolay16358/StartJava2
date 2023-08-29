@@ -50,7 +50,7 @@ public class IfElseStatementTheme {
         num1 = 10;
         System.out.print("Число " + num1 + " является ");
         if (num1 == 0) {
-            System.out.println("0");
+            System.out.println(num1);
         } else {
             if (num1 > 0) {
                 System.out.print("положительным и ");
@@ -94,11 +94,11 @@ public class IfElseStatementTheme {
         System.out.println("\nЗадача 5. Определение символа по его коду");
         char sign = '\u0057';
         System.out.print("Символ " + sign + " является ");
-        if (sign > '`' && sign < '{') {
+        if (sign >= 'a' && sign <= 'z') {
             System.out.println("маленькой буквой");
-        } else if (sign > '@' && sign < '[') {
+        } else if (sign >= 'A' && sign <= 'Z') {
             System.out.println("большой буквой");
-        } else if (sign > '/' && sign < ':') {
+        } else if (sign >= '0' && sign <= '9') {
             System.out.println("цифрой");
         } else {
             System.out.println("не буквой и не цифрой");
@@ -107,44 +107,44 @@ public class IfElseStatementTheme {
         System.out.println("\nЗадача 6. Подсчет суммы вклада и начисленных банком %");
         int deposit = 301_000;
         System.out.println("Сумма вклада составляет " + deposit + " руб.");
-        double bankRate = 0.10;
+        double rate = 0.10;
         if (deposit < 100_000) {
-            bankRate = 0.05;
+            rate = 0.05;
         } else if (deposit < 300_000) {
-            bankRate = 0.07;
+            rate = 0.07;
         } 
 
-        double interestAmount = deposit * bankRate;
+        double interestAmount = deposit * rate;
         System.out.println("Сумма начисленного % составляет " + (int) interestAmount + " руб.");
         System.out.println("Итоговая сумма с % составляет " + (int) (deposit + interestAmount) + " руб.");
 
         System.out.println("\nЗадача 7. Определение оценки по предметам");
-        int historyPoints = 59;
-        int programmingPoints = 92;
+        int historyPercent = 59;
         int historyMark = 2;
-        if (historyPoints > 91) {
+        if (historyPercent > 91) {
             historyMark = 5;
-        } else if (historyPoints > 73) {
+        } else if (historyPercent > 73) {
             historyMark = 4;
-        } else if (historyPoints > 60) {
+        } else if (historyPercent > 60) {
             historyMark = 3;
         }
         System.out.println("Оценка по истории - " + historyMark);
 
+        int programmingPercent = 92;
         int programmingMark = 2;
-        if (programmingPoints > 91) {
+        if (programmingPercent > 91) {
             programmingMark = 5;
-        } else if (programmingPoints > 73) {
+        } else if (programmingPercent > 73) {
             programmingMark = 4;
-        } else if (programmingPoints > 60) {
+        } else if (programmingPercent > 60) {
             programmingMark = 3;
         }
         System.out.println("Оценка по программированию - " + programmingMark);
 
-        double avgMark = (double) (historyMark + programmingMark) / 2;
-        System.out.println("Средний балл оценок по предметам - " + avgMark);
-        double avgPoints = (double) (historyPoints + programmingPoints) / 2;
-        System.out.println("Средний % по предметам - " + avgPoints);
+        double avgMarks = (double) (historyMark + programmingMark) / 2;
+        System.out.println("Средний балл оценок по предметам - " + avgMarks);
+        double avgPercents = (double) (historyPercent + programmingPercent) / 2;
+        System.out.println("Средний % по предметам - " + avgPercents);
 
         System.out.println("\nЗадача 8. Расчет годовой прибыли");
         int sale = 13_000;
