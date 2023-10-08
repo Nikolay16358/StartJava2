@@ -2,20 +2,20 @@ public class CyclesTheme {
 
     public static void main(String[] args) {
         System.out.println("Задача 1. Подсчет суммы четных и нечетных чисел");
-        int evenNumbersSum = 0;
-        int oddNumbersSum = 0;
-        int num = -10;
+        int sumEvenNums = 0;
+        int sumOddNums = 0;
+        int counter = -10;
         do {
-            if (num % 2 == 0) {
-                evenNumbersSum += num;
+            if (counter % 2 == 0) {
+                sumEvenNums += counter;
             } else {
-                oddNumbersSum += num;
+                sumOddNums += counter;
             }
-            num++;
-        } while (num <= 21);
+            counter++;
+        } while (counter <= 21);
 
-        System.out.println("В отрезке [-10, 21] сумма четных чисел = " + evenNumbersSum +
-                ", а нечетных = " + oddNumbersSum);
+        System.out.println("В отрезке [-10, 21] сумма четных чисел = " + sumEvenNums +
+                ", а нечетных = " + sumOddNums);
 
         System.out.println("\nЗадача 2. Вывод чисел в порядке убывания");
         int num1 = 10;
@@ -23,6 +23,7 @@ public class CyclesTheme {
         int num3 = -1;
         int max = num1;
         int min = num2;
+
         if (num2 > num1) {
             max = num2;
         }
@@ -44,36 +45,32 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\nЗадача 3. Вывод реверсивного числа и суммы его цифр");
-        num = 1234;
+        int num = 1234;
         int sum = 0;
-        int reverseNum = 0;
-        while (num != 0) {
+        System.out.print("Исходное число в обратном порядке: ");
+        while (num > 0) {
             int digit = num % 10;
+            System.out.print(digit);
             num /= 10;
             sum += digit;
-            reverseNum = reverseNum * 10 + digit;
         }
 
-        System.out.println("Исходное число в обратном порядке: " + reverseNum);
-        System.out.println("Сумма его цифр: " + sum);
+        System.out.println("\nСумма его цифр: " + sum);
 
         System.out.println("\nЗадача 4. Вывод чисел в несколько строк");
-        int startOfSegment = 1;
-        int finishOfInterval = 24;
-        int countOfNumbersInRow = 0;
-        for (int i = startOfSegment; i < finishOfInterval; i++) {
-            if (countOfNumbersInRow % 5 == 0 && i % 2 != 0) {
+        int start = 1;
+        int finish = 24;
+        int columns = 0;
+        for (int i = start; i < finish; i += 2) {
+            if (columns % 5 == 0) {
                 System.out.println();
             }
-
-            if (i % 2 != 0) {
-                System.out.printf("%3d", i);
-                countOfNumbersInRow++;
-            }
+            System.out.printf("%3d", i);
+            columns++;
         }
 
-        if (countOfNumbersInRow % 5 != 0) {
-            for (int j = countOfNumbersInRow; j % 5 != 0; j++) {
+        if (columns % 5 != 0) {
+            for (int i = columns; i % 5 != 0; i++) {
                 System.out.printf("%3d", 0);
             }
         }
@@ -81,19 +78,18 @@ public class CyclesTheme {
         System.out.println("\n\nЗадача 5. Проверка количества двоек числа на четность/нечетность");
         num = 3_242_592;
         System.out.print("В числе " + num);
-        int countOfTwos = 0;
-        while (num != 0) {
-            int digit = num % 10;
-            num /= 10;
-            if (digit == 2) {
-                countOfTwos++;
+        int twosCount = 0;
+        while (num > 0) {
+            if (num % 10 == 2) {
+                twosCount++;
             }
+            num /= 10;
         }
 
-        if (countOfTwos % 2 == 0) {
-            System.out.println(" четное количество двоек - " + countOfTwos);
+        if (twosCount % 2 == 0) {
+            System.out.println(" четное количество двоек - " + twosCount);
         } else {
-            System.out.println(" нечетное количество двоек - " + countOfTwos);
+            System.out.println(" нечетное количество двоек - " + twosCount);
         }
 
         System.out.println("\nЗадача 6. Отображение геометрических фигур");
@@ -105,46 +101,40 @@ public class CyclesTheme {
         }
         System.out.println();
 
-        int numberOfGridsInLine = 5;
-        int numberOfLines = 5;
-        while (numberOfLines > 0) {
-            while (numberOfGridsInLine > 0) {
+        columns = 5;
+        int rows = 5;
+        while (rows > 0) {
+            while (columns > 0) {
                 System.out.print('#');
-                numberOfGridsInLine--;
+                columns--;
             }
             System.out.println();
-            numberOfGridsInLine = numberOfLines - 1;
-            numberOfLines--;
+            columns = rows - 1;
+            rows--;
         }
         System.out.println();
 
-        int numberOfDollarsInLine = 0;
-        numberOfLines = 0;
+        columns = 0;
+        rows = 0;
         do {
             do {
                 System.out.print('$');
-                numberOfDollarsInLine++;
-            } while (numberOfDollarsInLine <= numberOfLines && numberOfDollarsInLine < 3);
+                columns++;
+            } while (columns <= rows && columns < 3);
             System.out.println();
-            numberOfLines++;
-            if (numberOfLines < 3) {
-                numberOfDollarsInLine = 0;
+            rows++;
+            if (rows < 3) {
+                columns = 0;
             } else {
-                numberOfDollarsInLine = numberOfLines - 2;
+                columns = rows - 2;
             }
-        } while (numberOfLines < 5);
+        } while (rows < 5);
 
         System.out.println("\nЗадача 7. Отображение ASCII-символов");
         System.out.printf("%-8S%-10S%-11S\n", "decimal", "character", "description");
-        for (int i = 1; i < 48; i++) {
-            if (i < 15 || (i >= 15 && i % 2 != 0)) {
-                System.out.printf("%4d%9c     %s\n", i, (char) i, Character.getName(i));
-            }
-        }
-
-        for (int j = 97; j < 123; j++) {
-            if (j % 2 == 0) {
-                System.out.printf("%4d%9c     %s\n", j, (char) j, Character.getName(j));
+        for (int i = 15; i < 123; i++) {
+            if ((i % 2 != 0 && i < 48) || (i > 96 && i % 2 == 0)) {
+                System.out.printf("  %-10d%-11c%s\n", i, (char) i, Character.getName(i));
             }
         }
 
@@ -152,8 +142,8 @@ public class CyclesTheme {
         num = 1_234_321;
         System.out.print("Число " + num);
         int copyNum = num;
-        reverseNum = 0;
-        while (num != 0) {
+        int reverseNum = 0;
+        while (num > 0) {
             int digit = num % 10;
             num /= 10;
             reverseNum = reverseNum * 10 + digit;
@@ -172,7 +162,7 @@ public class CyclesTheme {
         int rightHalfNum = num % 1000;
         int leftSum = 0;
         int rightSum = 0;
-        while (leftHalfNum != 0) {
+        while (leftHalfNum > 0) {
             int digit = leftHalfNum % 10;
             leftHalfNum /= 10;
             leftSum += digit;
