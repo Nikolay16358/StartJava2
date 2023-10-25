@@ -1,28 +1,28 @@
 public class Wolf {
 
     String gender;
-    String moniker;
+    String nickname;
     float weight;
     int age;
-    String woolColor;
+    String color;
 
     public void move() {
-        System.out.println(moniker + " is moving");
+        System.out.println(nickname + " is moving");
     }
 
     public void sit() {
-        System.out.println(moniker + " is sitting");
+        System.out.println(nickname + " is sitting");
     }
 
     public void run() {
-        System.out.println(moniker + " is running");
+        System.out.println(nickname + " is running");
     }
 
     public void howl() {
-        System.out.println(moniker + " is howling");
+        System.out.println(nickname + " is howling");
     }
 
     public void hunt() {
-        System.out.println(moniker + " is hunting");
+        System.out.println(nickname + " is hunting");
     }
 }
