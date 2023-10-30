@@ -18,7 +18,7 @@ public class Calculator {
 
     public void calculate() {
         int result = 1;
-        boolean isDefault = false;
+        boolean error = false;
         switch (sign) {
             case '^':
                 for (int i = 1; i <= num2; i++) {
@@ -41,13 +41,12 @@ public class Calculator {
                 result = num1 % num2;
                 break;
             default:
-                isDefault = true;
+                error = true;
                 System.out.println("The entered mathematical operation is not supported");
         }
 
-        if (!isDefault) {
+        if (!error) {
             System.out.println("Calculation result: " + num1 + " " + sign + " " + num2 + " = " + result);
         }
-
     }
 }
