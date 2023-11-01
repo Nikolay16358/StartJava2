@@ -6,7 +6,7 @@ public class GuessNumber {
 
     private Player player1;
     private Player player2;
-    private static int hiddenNumber;
+    private int hiddenNumber;
     private Scanner scanner = new Scanner(System.in);
 
     public GuessNumber(Player player1, Player player2) {
@@ -16,28 +16,27 @@ public class GuessNumber {
 
     public void play() {
         hiddenNumber = (int) (Math.random() * 100 + 1);
-        while (hiddenNumber != player2.getNumber()) {
-            isMove(player1);
-            if (hiddenNumber == player1.getNumber()) {
+        do {
+            if (isGuessed(player1)) {
                 break;
             }
 
-            isMove(player2);
-        }
+        } while (!isGuessed(player2));
 
         player1.setNumber(0);
         player2.setNumber(0);
     }
 
-    private boolean isMove(Player player) {
+    private boolean isGuessed(Player player) {
         enterNumber(player);
-        if (hiddenNumber > player.getNumber()) {
-            System.out.println("The number " + player.getNumber() + " is less than the computer thought.");
-            return false;
+        int playerNumber = player.getNumber();
+        if (hiddenNumber > playerNumber) {
+            System.out.println("The number " + playerNumber + " is less than the computer thought.");
+        } else if (hiddenNumber < playerNumber) {
+            System.out.println("The number " + playerNumber + " is more than the computer thought.");
         }
 
-        if (hiddenNumber < player.getNumber()) {
-            System.out.println("The number " + player.getNumber() + " is more than the computer thought.");
+        if (hiddenNumber != playerNumber) {
             return false;
         }
 
@@ -47,7 +46,6 @@ public class GuessNumber {
 
     private int enterNumber(Player player) {
         System.out.println(player.getName() + ", enter a number: ");
-        player.setNumber(scanner.nextInt());
-        return player.getNumber();
+        return player.setNumber(scanner.nextInt());
     }
 }
