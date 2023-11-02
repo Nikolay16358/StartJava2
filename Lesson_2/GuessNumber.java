@@ -20,7 +20,6 @@ public class GuessNumber {
             if (isGuessed(player1)) {
                 break;
             }
-
         } while (!isGuessed(player2));
 
         player1.setNumber(0);
@@ -30,18 +29,18 @@ public class GuessNumber {
     private boolean isGuessed(Player player) {
         enterNumber(player);
         int playerNumber = player.getNumber();
+        if (hiddenNumber == playerNumber) {
+            System.out.println(player.getName() + ", You are the winner!");
+            return true;
+        }
+
         if (hiddenNumber > playerNumber) {
             System.out.println("The number " + playerNumber + " is less than the computer thought.");
-        } else if (hiddenNumber < playerNumber) {
+        } else {
             System.out.println("The number " + playerNumber + " is more than the computer thought.");
         }
 
-        if (hiddenNumber != playerNumber) {
-            return false;
-        }
-
-        System.out.println(player.getName() + ", You are the winner!");
-        return true;
+        return false;
     }
 
     private int enterNumber(Player player) {
