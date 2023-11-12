@@ -5,6 +5,12 @@ out/
 lib/
 .idea/
 
+# options and optionsj files in the folder "calculator"
+# src/com/startjava2/lesson_2_3_4/calculator/options
+options
+# src/com/startjava2/lesson_2_3_4/calculator/optionsj
+optionsj
+
 # Log file
 *.log
 
